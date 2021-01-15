@@ -93,3 +93,18 @@ ul {
   20% { transform: skewX(0deg); }
   100% { transform: skewX(0deg); }  
 }
+
+// Breakpoints
+$breakpoints: (
+  'small':  ( min-width:  767px ),
+  'medium': ( min-width:  992px ),
+  'large':  ( min-width: 1200px )
+) !default;
+
+@mixin bp($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+}
