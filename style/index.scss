@@ -22,13 +22,8 @@ $slate: rgba(0, 0, 0, 0.452);
 
 .viewport {
   @include flex(column);
-  // opacity: 0;
   @include transition;
   animation: fade 1s ease-in-out;
-
-  // &.fade {
-  //   opacity: 1;
-  // }
 }
 
 .header {
@@ -40,7 +35,7 @@ $slate: rgba(0, 0, 0, 0.452);
     top: 40px;
   }
   nav {
-    
+    z-index: 100;
   }
   ul {
     @include flex;
@@ -131,9 +126,33 @@ $slate: rgba(0, 0, 0, 0.452);
       bottom: 480px;
       color: white;
       z-index: 100;
+    }
+
+    .text {
+      width: 100%;
+      height: 100%;
+      @include flex(column);
+      @include flex-center;
+      .heading {
+        position: initial;
+      }
+    }
+
+    .img-wrapper {
+      @include flex;
       position: absolute;
     }
   }
+
+  &.projects {
+    min-height: 650px;
+    .img-wrapper {
+      @include flex;
+      position: absolute;
+      @include flex-center;
+    }
+  }
+  
 }
 
 .content {
@@ -179,6 +198,7 @@ $slate: rgba(0, 0, 0, 0.452);
   width: 100%;
   background-color: #dedede2b;
   min-height: 64px;
+  z-index: 100;;
   @include flex;
   @include flex-center;
   
@@ -192,4 +212,8 @@ a {
   &:hover {
     border-bottom: 2px solid $slate;
   }
+}
+
+.hidden {
+  display: none;
 }
